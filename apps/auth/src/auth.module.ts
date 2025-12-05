@@ -7,6 +7,7 @@ import { JwtModule } from '@nestjs/jwt';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import * as Joi from 'joi';
 import { LocalStrategy } from 'apps/auth/src/strategies/local.strategy';
+import { JwtStrategy } from 'apps/auth/src/strategies/jwt.strategy';
 
 @Module({
   imports: [
@@ -16,7 +17,7 @@ import { LocalStrategy } from 'apps/auth/src/strategies/local.strategy';
       useFactory: (configService: ConfigService) => ({
         secret: configService.get<string>('JWT_SECRET'),
         signOptions: {
-          expiresIn: configService.get('JWT_EXPIRATION'),
+          expiresIn: `${configService.get('JWT_EXPIRATION')}s`,
         },
       }),
       inject: [ConfigService],
@@ -27,11 +28,12 @@ import { LocalStrategy } from 'apps/auth/src/strategies/local.strategy';
         MONGODB_URI: Joi.string().required(),
         JWT_SECRET: Joi.string().required(),
         JWT_EXPIRATION: Joi.string().required(),
-        PORT: Joi.number().default(3001),
+        HTTP_PORT: Joi.number().default(3002),
+        TCP_PORT: Joi.number().default(3002),
       }),
     }),
   ],
   controllers: [AuthController],
-  providers: [AuthService, LocalStrategy],
+  providers: [AuthService, LocalStrategy, JwtStrategy],
 })
 export class AuthModule {}
