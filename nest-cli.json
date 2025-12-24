@@ -10,15 +10,6 @@
   "monorepo": true,
   "root": "apps/reservations-service",
   "projects": {
-    "reservations-service": {
-      "type": "application",
-      "root": "apps/reservations-service",
-      "entryFile": "main",
-      "sourceRoot": "apps/reservations-service/src",
-      "compilerOptions": {
-        "tsConfigPath": "apps/reservations-service/tsconfig.app.json"
-      }
-    },
     "auth-service": {
       "type": "application",
       "root": "apps/auth",
@@ -26,6 +17,33 @@
       "sourceRoot": "apps/auth/src",
       "compilerOptions": {
         "tsConfigPath": "apps/auth/tsconfig.app.json"
+      }
+    },
+    "notifications": {
+      "type": "application",
+      "root": "apps/notifications",
+      "entryFile": "main",
+      "sourceRoot": "apps/notifications/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/notifications/tsconfig.app.json"
+      }
+    },
+    "payments": {
+      "type": "application",
+      "root": "apps/payments",
+      "entryFile": "main",
+      "sourceRoot": "apps/payments/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/payments/tsconfig.app.json"
+      }
+    },
+    "reservations-service": {
+      "type": "application",
+      "root": "apps/reservations-service",
+      "entryFile": "main",
+      "sourceRoot": "apps/reservations-service/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/reservations-service/tsconfig.app.json"
       }
     }
   }
