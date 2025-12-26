@@ -5,7 +5,7 @@ steps:
       [
         'build',
         '-t',
-        'europe-west8-docker.pkg.dev/reservations-482309/reservations/reservations-service:production',
+        'europe-west8-docker.pkg.dev/reservations-482309/reservations-service/production',
         '-f',
         'apps/reservations-service/Dockerfile',
         '.',
@@ -14,7 +14,7 @@ steps:
     args:
       [
         'push',
-        'europe-west8-docker.pkg.dev/reservations-482309/reservations/reservations-service:production',
+        'europe-west8-docker.pkg.dev/reservations-482309/reservations-service/production',
       ]
 
   # Auth Service
@@ -23,7 +23,7 @@ steps:
       [
         'build',
         '-t',
-        'europe-west8-docker.pkg.dev/reservations-482309/reservations/auth-service:production',
+        'europe-west8-docker.pkg.dev/reservations-482309/auth/production',
         '-f',
         'apps/auth/Dockerfile',
         '.',
@@ -32,7 +32,7 @@ steps:
     args:
       [
         'push',
-        'europe-west8-docker.pkg.dev/reservations-482309/reservations/auth-service:production',
+        'europe-west8-docker.pkg.dev/reservations-482309/auth/production',
       ]
 
   # Notifications Service
@@ -41,7 +41,7 @@ steps:
       [
         'build',
         '-t',
-        'europe-west8-docker.pkg.dev/reservations-482309/reservations/notifications-service:production',
+        'europe-west8-docker.pkg.dev/reservations-482309/notifications/production',
         '-f',
         'apps/notifications/Dockerfile',
         '.',
@@ -50,7 +50,7 @@ steps:
     args:
       [
         'push',
-        'europe-west8-docker.pkg.dev/reservations-482309/reservations/notifications-service:production',
+        'europe-west8-docker.pkg.dev/reservations-482309/notifications/production',
       ]
 
   # Payments Service
@@ -59,7 +59,7 @@ steps:
       [
         'build',
         '-t',
-        'europe-west8-docker.pkg.dev/reservations-482309/reservations/payments-service:production',
+        'europe-west8-docker.pkg.dev/reservations-482309/payments/production',
         '-f',
         'apps/payments/Dockerfile',
         '.',
@@ -68,7 +68,7 @@ steps:
     args:
       [
         'push',
-        'europe-west8-docker.pkg.dev/reservations-482309/reservations/payments-service:production',
+        'europe-west8-docker.pkg.dev/reservations-482309/payments/production',
       ]
 
 options:
