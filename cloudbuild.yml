@@ -67,3 +67,5 @@ steps:
         'push',
         'europe-west8-docker.pkg.dev/reservations-482309/payments/production',
       ]
+options:
+  logging: CLOUD_LOGGING_ONLY
