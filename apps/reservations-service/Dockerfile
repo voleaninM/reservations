@@ -4,14 +4,17 @@ WORKDIR /usr/src/app
 
 COPY package.json ./
 COPY pnpm-lock.yaml ./
+COPY tsconfig.json tsconfig.json
+COPY nest-cli.json nest-cli.json
 
 RUN npm i -g pnpm
 
-RUN pnpm install
+COPY apps/reservations-service ./apps/reservations-service
+COPY libs ./libs
 
-COPY . .
+RUN pnpm install -r
 
-RUN pnpm run build
+RUN pnpm run build reservations-service
 
 FROM node:alpine AS production
 
