@@ -1,28 +1,29 @@
 steps:
-  #reservations
+  # Reservations Service
   - name: 'gcr.io/cloud-builders/docker'
     args:
       [
         'build',
         '-t',
-        'europe-west8-docker.pkg.dev/reservations-482309/reservations/production',
+        'europe-west8-docker.pkg.dev/reservations-482309/reservations/reservations-service:production',
         '-f',
-        'apps/reservations/Dockerfile',
+        'apps/reservations-service/Dockerfile',
         '.',
       ]
   - name: 'gcr.io/cloud-builders/docker'
     args:
       [
         'push',
-        'europe-west8-docker.pkg.dev/reservations-482309/reservationsproduction',
+        'europe-west8-docker.pkg.dev/reservations-482309/reservations/reservations-service:production',
       ]
-    #auth
+
+  # Auth Service
   - name: 'gcr.io/cloud-builders/docker'
     args:
       [
         'build',
         '-t',
-        'europe-west8-docker.pkg.dev/reservations-482309/auth/production',
+        'europe-west8-docker.pkg.dev/reservations-482309/reservations/auth-service:production',
         '-f',
         'apps/auth/Dockerfile',
         '.',
@@ -31,15 +32,16 @@ steps:
     args:
       [
         'push',
-        'europe-west8-docker.pkg.dev/reservations-482309/auth/production',
+        'europe-west8-docker.pkg.dev/reservations-482309/reservations/auth-service:production',
       ]
-    #notifications
+
+  # Notifications Service
   - name: 'gcr.io/cloud-builders/docker'
     args:
       [
         'build',
         '-t',
-        'europe-west8-docker.pkg.dev/reservations-482309/notifications/production',
+        'europe-west8-docker.pkg.dev/reservations-482309/reservations/notifications-service:production',
         '-f',
         'apps/notifications/Dockerfile',
         '.',
@@ -48,15 +50,16 @@ steps:
     args:
       [
         'push',
-        'europe-west8-docker.pkg.dev/reservations-482309/notifications/production',
+        'europe-west8-docker.pkg.dev/reservations-482309/reservations/notifications-service:production',
       ]
-    #payments
+
+  # Payments Service
   - name: 'gcr.io/cloud-builders/docker'
     args:
       [
         'build',
         '-t',
-        'europe-west8-docker.pkg.dev/reservations-482309/payments/production',
+        'europe-west8-docker.pkg.dev/reservations-482309/reservations/payments-service:production',
         '-f',
         'apps/payments/Dockerfile',
         '.',
@@ -65,7 +68,8 @@ steps:
     args:
       [
         'push',
-        'europe-west8-docker.pkg.dev/reservations-482309/payments/production',
+        'europe-west8-docker.pkg.dev/reservations-482309/reservations/payments-service:production',
       ]
+
 options:
   logging: CLOUD_LOGGING_ONLY
